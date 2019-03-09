@@ -1,29 +1,40 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div class="l-wrapper">
+    <div class="l-header"><Header/></div>
+    <div class="l-nav"><Nav/></div>
+    <div class="l-content"><router-view/></div>
+    <Modal/>
+    <div class="l-footer"><FooterMenu/></div>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
+<script>
+  // @ is an alias to /src
+  import Header from '@/components/Header.vue'
+  import Nav from '@/components/Nav.vue'
+  import FooterMenu from '@/components/FooterMenu.vue'
+  import Modal from '@/components/Modal.vue'
+
+  export default {
+    name: 'app',
+    components: {
+      Header,
+      Nav,
+      FooterMenu,
+      Modal
     }
   }
-}
+</script>
+
+<style lang="scss">
+  @import "./assets/sass/reset";
+  @import "./assets/sass/base";
+  .l-wrapper{
+    display:flex;
+    flex-direction: column;
+    height:100%;
+    .l-content{
+      flex:1 1 auto;
+    }
+  }
 </style>
