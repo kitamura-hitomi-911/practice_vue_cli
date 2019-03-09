@@ -1,10 +1,14 @@
 <template>
   <div class="l-wrapper">
     <div class="l-header"><Header/></div>
-    <div class="l-nav"><Nav/></div>
-    <div class="l-content"><router-view/></div>
-    <Modal/>
-    <div class="l-footer"><FooterMenu/></div>
+    <div class="l-body">
+      <div class="l-nav"><Nav/></div>
+      <div class="l-content">
+        <router-view/>
+      </div>
+      <div class="l-footer"><FooterMenu/></div>
+      <Modal/>
+    </div>
   </div>
 </template>
 
@@ -33,8 +37,14 @@
     display:flex;
     flex-direction: column;
     height:100%;
-    .l-content{
+    .l-body{
+      display:flex;
+      flex-direction: column;
+      position:relative;
       flex:1 1 auto;
+      .l-content{
+        flex:1 1 auto;
+      }
     }
   }
 </style>

@@ -3,7 +3,7 @@
     <ul>
       <li><router-link to="/">ホーム</router-link></li>
       <li><router-link to="/about">About</router-link></li>
-      <li><router-link to="/about">Log</router-link></li>
+      <li><router-link to="/log">Log</router-link></li>
     </ul>
   </div>
 </template>
