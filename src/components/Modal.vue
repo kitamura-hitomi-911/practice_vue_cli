@@ -2,7 +2,7 @@
   <transition name="fade">
     <div class="l-modal" v-if="is_active">
       <div class="l-modal-inner">
-        <component :is="component" @close="close"/>
+        <component :is="component" :params="params" @close="close"/>
       </div>
     </div>
   </transition>
@@ -14,9 +14,17 @@
     name: 'Modal',
     data(){
       return {
-        is_active:true,
+        is_active:false,
+        params:{},
         component:'ModalDefault'
       }
+    },
+    created(){
+      this.$event_bus.$on('openModal',(modal_info)=>{
+        this.component = modal_info.component;
+        this.params = modal_info.params;
+        this.is_active = true;
+      });
     },
     components:{
       ModalDefault
