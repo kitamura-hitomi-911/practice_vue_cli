@@ -25,6 +25,9 @@
         this.params = modal_info.params;
         this.is_active = true;
       });
+      this.$event_bus.$on('closeModal',()=>{
+        this.close();
+      });
     },
     components:{
       ModalDefault

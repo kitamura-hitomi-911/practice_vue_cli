@@ -9,22 +9,6 @@
 
 
 export default {
-  name: 'home',
-  created(){
-    /*
-    setTimeout(()=>{
-      this.$event_bus.$emit('openModal',{
-        component:'ModalDefault',
-        params:{
-          title:'タイトルです',
-          lead:'内容です'
-        }
-      });
-    },5000);
-    */
-  },
-  components: {
-
-  }
+  name: 'home'
 }
 </script>

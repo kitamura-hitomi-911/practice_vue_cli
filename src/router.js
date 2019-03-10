@@ -5,7 +5,7 @@ import About from './views/About.vue'
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -16,12 +16,19 @@ export default new Router({
       path: '/about',
       name: 'about',
       component : About,
+      props: (route) => ({ action: route.name }),/* こう渡さないと childrenには props が渡らない */
       children: [
         {
-          path:':action',
-          name:'about_action',
+          path:'input',
+          name:'aboutInput',
           component : About,
-          props: true
+          meta: { is_login: true }
+        },
+        {
+          path:'confirm',
+          name:'aboutConfirm',
+          component : About,
+          meta: { is_login: true }
         }
       ]
     },
@@ -33,4 +40,11 @@ export default new Router({
       }
     }
   ]
-})
+});
+
+router.beforeEach((to, from, next) => {
+  console.log('beforeEach',from,to);
+  next();
+});
+
+export default router;
